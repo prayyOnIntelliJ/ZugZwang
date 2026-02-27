@@ -5,7 +5,7 @@
 [![Language](https://img.shields.io/badge/Language-CSharp-355570)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 [![Project](https://img.shields.io/badge/Project-Playable%20on%20itch.io-orange)](https://s4g.itch.io/zugzwang)
 
-![Cover Image](<img width="1024" height="500" alt="CoverImage" src="https://github.com/user-attachments/assets/b88f248c-e6bd-47b8-858d-403e7e433306" />)
+<img width="1024" height="500" alt="CoverImage" src="https://github.com/user-attachments/assets/b88f248c-e6bd-47b8-858d-403e7e433306" />
 
 **ZugZwang** is a strategic, chess-inspired puzzle game focused on tactical positioning, decision pressure, and deliberate play.  
 Developed within a **10-week production timeframe** as part of the *School4Games* program, the project emphasizes clean systems, scalable progression, and performance-aware design under real production constraints.
