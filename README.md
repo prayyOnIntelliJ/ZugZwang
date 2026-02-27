@@ -10,7 +10,7 @@
 **ZugZwang** is a strategic, chess-inspired puzzle game focused on tactical positioning, decision pressure, and deliberate play.  
 Developed within a **10-week production timeframe** as part of the *School4Games* program, the project emphasizes clean systems, scalable progression, and performance-aware design under real production constraints.
 
-🔗 **Project page:** https://www.jannikkluge.com/projects/ZugZwang   
+🔗 **Project page:** https://www.jannikkluge.com/#/projects/ZugZwang   
 🌐 **Portfolio:** https://www.jannikkluge.com
 
 ---
@@ -65,7 +65,7 @@ Targeting mobile early enforced discipline in rendering, memory allocation, and 
 - **Perforce** – Version control and collaboration  
 
 More tools and engines I work with:  
-➡️ https://www.jannikkluge.com/tools-and-engines
+➡️ https://www.jannikkluge.com/#/tools-and-engines
 
 ---
 
