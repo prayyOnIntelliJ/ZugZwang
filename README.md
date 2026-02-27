@@ -1,7 +1,7 @@
 # ♟️ ZugZwang
 
 [![Engine](https://img.shields.io/badge/Engine-Unity%20Engine-478cbf)](https://unity.com)
-[![Role](https://img.shields.io/badge/Role-Game%20Engineer-blue)](https://www.jannikkluge.com/about)
+[![Role](https://img.shields.io/badge/Role-Game%20Engineer-blue)](https://www.jannikkluge.com/#/about)
 [![Language](https://img.shields.io/badge/Language-CSharp-355570)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 [![Project](https://img.shields.io/badge/Project-Playable%20on%20itch.io-orange)](https://s4g.itch.io/zugzwang)
 
