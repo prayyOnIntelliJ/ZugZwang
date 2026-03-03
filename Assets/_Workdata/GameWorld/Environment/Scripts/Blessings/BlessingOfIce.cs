@@ -18,15 +18,14 @@ public class BlessingOfIce : MonoBehaviour, IBlessing
 
     [SerializeField] private float obsidianHeightOffset = 0.6f;
 
-    public static event Action<Vector3> OnPickUp; //Yona
+    public static event Action<Vector3> OnPickUp;
 
 
     public void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
-
-        List<GameObject> rowList = GetFollowingRows();
-        foreach (GameObject row in rowList)
+        
+        foreach (GameObject row in GetFollowingRows())
         {
             foreach (LavaField lavaField in row.GetComponentsInChildren<LavaField>())
             {
