@@ -12807,7 +12807,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6954080430300022735}
         m_TargetAssemblyTypeName: PlayerAccountProgression, Game
-        m_MethodName: AddXP
+        m_MethodName: AddXp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

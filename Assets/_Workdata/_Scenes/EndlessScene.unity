@@ -8669,7 +8669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5133199166936754789, guid: c88f40c83eee0474e94990eaa68eb301, type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddXP
+      value: AddXp
       objectReference: {fileID: 0}
     - target: {fileID: 5133199166936754789, guid: c88f40c83eee0474e94990eaa68eb301, type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName

@@ -72,14 +72,14 @@ public class ProgressBar : MonoBehaviour
             if (levelUpCount <= 1)
             {
                 xpText.text =
-                    Mathf.RoundToInt(Mathf.Lerp(0, playerAccountProgression.CurrentXP, curve.Evaluate(progress))) +
+                    Mathf.RoundToInt(Mathf.Lerp(0, playerAccountProgression.CurrentXp, curve.Evaluate(progress))) +
                     xpSuffix;
                 mask.fillAmount = Mathf.Lerp(0, playerAccountProgression.GetLevelProgress(), curve.Evaluate(progress));
             }
             else
             {
                 xpText.text =
-                    Mathf.RoundToInt(Mathf.Lerp(playerAccountProgression.CurrentXP, xpNeeded,
+                    Mathf.RoundToInt(Mathf.Lerp(playerAccountProgression.CurrentXp, xpNeeded,
                         curve.Evaluate(progress))) + xpSuffix;
                 mask.fillAmount = Mathf.Lerp(playerAccountProgression.GetLevelProgress(), 1, curve.Evaluate(progress));
             }
@@ -131,7 +131,7 @@ public class ProgressBar : MonoBehaviour
             t2 += Time.deltaTime;
             float progress = t2 / fillTimeInSeconds;
             xpText.text =
-                Mathf.RoundToInt(Mathf.Lerp(0, playerAccountProgression.CurrentXP, curve.Evaluate(progress))) + " XP";
+                Mathf.RoundToInt(Mathf.Lerp(0, playerAccountProgression.CurrentXp, curve.Evaluate(progress))) + " XP";
             mask.fillAmount = Mathf.Lerp(0, finalProgress, curve.Evaluate(progress));
             yield return null;
         }
@@ -150,7 +150,7 @@ public class ProgressBar : MonoBehaviour
             float progress = t / fillTimeInSeconds;
             mask.fillAmount = Mathf.Lerp(0, playerAccountProgression.GetLevelProgress(), curve.Evaluate(progress));
             xpText.text =
-                Mathf.RoundToInt(Mathf.Lerp(0, playerAccountProgression.CurrentXP, curve.Evaluate(progress))) +
+                Mathf.RoundToInt(Mathf.Lerp(0, playerAccountProgression.CurrentXp, curve.Evaluate(progress))) +
                 xpSuffix;
             yield return null;
         }
