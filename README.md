@@ -33,18 +33,14 @@ Key features:
 I worked as **Game Engineer** in a team of 10 people, contributing across gameplay systems, UI, performance optimization, and production pipelines.
 
 ### Core Responsibilities
-- Implemented large parts of **player movement and interaction logic**
-- Designed and built the **complete UI system** (menus, HUD, progression screens)
-- Implemented the **level progression system** including XP and levels
-- Developed the **Endless Mode** with scalable difficulty
-- Optimized performance with **mobile hardware constraints** in mind
-- Set up and maintained the **build pipeline**
-
-### Technical Ownership
-- Structured gameplay systems for maintainability and reuse
-- Managed board state, rule enforcement, and move validation  
-- Built internal debug and helper tools to support iteration and testing  
-- Ensured clean repository structure and stable builds throughout production
+- Implemented a [Player Account Progression System](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/GameWorld/PlayerProgression/Scripts/PlayerAccountProgression.cs) featuring levels, XP, and persistent [high scores](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/GameWorld/Misc/Scripts/HighScore.cs), supported by an [extended PlayerPrefs-based save system](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/GameWorld/Misc/Scripts/Prefs.cs)
+- Developed a [PlayerPrefs Editor UI](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/GameWorld/Misc/Scripts/PlayerPrefsEditor.cs) and implemented touch controls  
+- Designed and built a responsive UI, including the [Main Menu](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/UI/Scripts/MainMenu.cs), [Pause Menu](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/UI/Scripts/PauseMenu.cs), and [Ingame HUD](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/UI/Scripts/HUD.cs), along with a functional [loading screen](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/UI/Scripts/LoadingScreen.cs) with [async loading](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/GameWorld/Misc/Scripts/SceneLoader.cs)
+- Developed the Tutorial Mode
+- Implemented the [environment randomizer](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/GameWorld/Environment/Scripts/EnvironmentRandomizer.cs) and spawning
+- Built a custom [debug system](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/GameWorld/Misc/Scripts/Debugger.cs)
+- Implemented [graphic and audio settings](https://github.com/prayyOnIntelliJ/ZugZwang/blob/main/Assets/_Workdata/UI/Scripts/SettingsOverwriter.cs)
+- Contributed to battery life optimization
 
 ---
 
