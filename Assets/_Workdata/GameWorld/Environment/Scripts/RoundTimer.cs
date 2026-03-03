@@ -60,7 +60,7 @@ public class RoundTimer : MonoBehaviour
         if (currentRoundLength <= roundEndTime)
         {
             ResetTimer();
-            OnTurn?.Invoke(GetSegmentInformation(phaseSettings[currentCount]));
+            OnTurn?.Invoke(GetSegmentInformation(GetCurrentPhaseSettings()));
             currentFieldCount++;
             hasBeenActivated = false;
         }

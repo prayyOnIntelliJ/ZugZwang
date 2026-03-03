@@ -15,7 +15,7 @@ public class CollideEvent : MonoBehaviour
         if (other.CompareTag(tagToCompare))
         {
             OnCollisionDetected?.Invoke();
-            Prefs.IsFirstGame = false;
+            Prefs.SetKey(Prefs.KEY_TYPES.FIRST_GAME, false);
         }
     }
 }

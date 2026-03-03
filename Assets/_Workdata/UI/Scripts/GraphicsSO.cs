@@ -10,7 +10,7 @@ public class GraphicsSO : ScriptableObject
     
     public void SetGraphicSettings(int currentGraphicIndex)
     {
-        Prefs.GraphicIndex = currentGraphicIndex;
+        Prefs.SetKey(Prefs.KEY_TYPES.GRAPHICS, currentGraphicIndex);
         GraphicsSettings.defaultRenderPipeline = mobileAssets[currentGraphicIndex];
         QualitySettings.renderPipeline = mobileAssets[currentGraphicIndex];
     }

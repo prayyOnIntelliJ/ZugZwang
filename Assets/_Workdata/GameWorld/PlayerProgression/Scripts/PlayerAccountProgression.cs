@@ -17,14 +17,14 @@ public class PlayerAccountProgression : MonoBehaviour
 
     public int CurrentLevel
     {
-        get => Prefs.Level;
-        set => Prefs.Level = value;
+        get => Prefs.GetKey<int>(Prefs.KEY_TYPES.LEVEL);
+        set => Prefs.SetKey(Prefs.KEY_TYPES.LEVEL, value);
     }
 
     public int CurrentXP
     {
-        get => Prefs.Xp;
-        set => Prefs.Xp = value;
+        get => Prefs.GetKey<int>(Prefs.KEY_TYPES.XP);
+        set => Prefs.SetKey(Prefs.KEY_TYPES.XP, value);
     }
 
     private void Awake()
@@ -85,8 +85,8 @@ public class PlayerAccountProgression : MonoBehaviour
 
     private void SetDefaultValues()
     {
-        if (!PlayerPrefs.HasKey(PLAYERPREFS_LEVEL_KEY)) Prefs.Level = 0;
-        if (!PlayerPrefs.HasKey(PLAYERPREFS_XP_KEY)) Prefs.Xp = 0;
+        if (!Prefs.HasKey(Prefs.KEY_TYPES.LEVEL)) Prefs.SetKey(Prefs.KEY_TYPES.LEVEL, 0);
+        if (!Prefs.HasKey(Prefs.KEY_TYPES.XP)) Prefs.SetKey(Prefs.KEY_TYPES.XP, 0);
     }
 
     private void CheckForLevelup(int currentXp, int currentLevel)

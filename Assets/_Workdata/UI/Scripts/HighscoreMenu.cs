@@ -13,7 +13,7 @@ public class HighscoreMenu : MonoBehaviour
 
     private void Start()
     {
-        List<int> highScores = Prefs.BestScores;
+        List<int> highScores = Prefs.ScoreSystem.BestScores;
 
         for (int i = 0; i < highScores.Count; i++)
         {

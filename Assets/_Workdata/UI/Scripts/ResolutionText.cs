@@ -21,7 +21,7 @@ public class ResolutionText : TextMeshProUGUI
     private new void OnEnable()
     {
         base.OnEnable();
-        currentGraphicsIndex = Prefs.GraphicIndex;
+        currentGraphicsIndex = Prefs.GetKey(Prefs.KEY_TYPES.GRAPHICS, currentGraphicsIndex);
         UpdateGraphicsText();
     }
 
@@ -37,7 +37,7 @@ public class ResolutionText : TextMeshProUGUI
     
     private void ChangeGraphicIndex(int direction)
     {
-        currentGraphicsIndex = Mathf.Clamp(Prefs.GraphicIndex + direction, 0, graphicsSO.graphicSteps.Count - 1);
+        currentGraphicsIndex = Mathf.Clamp(Prefs.GetKey(Prefs.KEY_TYPES.GRAPHICS, currentGraphicsIndex) + direction, 0, graphicsSO.graphicSteps.Count - 1);
 
         settingsOverwriter?.SetGraphicSettings(currentGraphicsIndex);
         // also sets the graphicIndex in the PlayerPrefs

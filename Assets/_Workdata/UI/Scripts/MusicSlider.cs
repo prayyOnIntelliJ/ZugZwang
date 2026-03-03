@@ -21,7 +21,7 @@ public class MusicSlider : Slider
     {
         base.OnEnable();
         float defaultVolume = 0.5f;
-        float musicVolume = PlayerPrefs.HasKey("musicVolume") ? Mathf.Pow(10, Prefs.MusicVolume / 20f) : defaultVolume;
+        float musicVolume = Prefs.HasKey(Prefs.KEY_TYPES.MUSIC) ? Mathf.Pow(10, Prefs.GetKey<float>(Prefs.KEY_TYPES.MUSIC) / 20f) : defaultVolume;
         value = musicVolume;
     }
 
@@ -31,6 +31,6 @@ public class MusicSlider : Slider
         float newVolume = Mathf.Log10(volume) * 20;
         audioMixer.SetFloat(musicGroup.name, newVolume);
 
-        Prefs.MusicVolume = newVolume;
+        Prefs.SetKey(Prefs.KEY_TYPES.MUSIC, newVolume);
     }
 }

@@ -11,6 +11,9 @@ public class DeathMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        if (scoreTextfield && highScoreObject) scoreTextfield.text = highScoreObject.currentScore.ToString();
+        if (scoreTextfield != null && highScoreObject != null)
+        {
+            scoreTextfield.text = highScoreObject.currentScore.ToString();
+        }
     }
 }

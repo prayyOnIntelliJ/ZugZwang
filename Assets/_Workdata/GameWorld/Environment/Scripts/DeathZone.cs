@@ -40,25 +40,25 @@ public class DeathZone : MonoBehaviour
             deathScreen.SetActive(true);
             OnDeath?.Invoke(highScore.currentScore);
             
-            List<int> scores = Prefs.BestScores;
+            List<int> scores = Prefs.ScoreSystem.BestScores;
             int newScore = highScore.currentScore;
             
-            foreach (int score in scores)
+            foreach (int oldScore in scores)
             {
-                if (score == newScore) return;
+                if (oldScore == newScore) return;
             }
             
             if (newScore > scores[^1])
             {
                 int insertIndex = scores.FindIndex(score => newScore > score);
                 scores.Insert(insertIndex, newScore);
-
-                Prefs.NewScore = true;
+                
+                Prefs.SetKey(Prefs.KEY_TYPES.NEW_SCORE, true);
                 
                 if (scores.Count > 10)
                     scores.RemoveAt(scores.Count - 1);
 
-                Prefs.BestScores = scores;
+                Prefs.ScoreSystem.BestScores = scores;
                 // If list count is higher than 10, remove last entry
             }
         }

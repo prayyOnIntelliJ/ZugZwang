@@ -1,7 +1,6 @@
 using System.Collections;
 using MyBox;
 using UnityEngine;
-using SerializeGoon = UnityEngine.SerializeField;
 
 [RequireComponent(typeof(AudioSource))]
 public class DelayedAudioClip : MonoBehaviour

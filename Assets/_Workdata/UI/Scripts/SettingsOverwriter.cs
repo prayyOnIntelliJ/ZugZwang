@@ -6,6 +6,7 @@ public class SettingsOverwriter : MonoBehaviour
 {
     [Separator("Graphic Settings")]
     [SerializeField] private int defaultGraphicIndex = 2;
+    [SerializeField] private float defaultDB = -6f;
     [SerializeField] private GraphicsSO graphicsSO;
     [Separator("Sound Settings")]
     [SerializeField] private AudioMixerGroup soundGroup;
@@ -14,11 +15,14 @@ public class SettingsOverwriter : MonoBehaviour
     private void Start()
     {
         int graphicIndex;
-        if(PlayerPrefs.HasKey("graphicsIndex")) graphicIndex = Prefs.GraphicIndex;
+        
+        if (Prefs.ExistsOrCreateKey(Prefs.KEY_TYPES.GRAPHICS, defaultGraphicIndex))
+        {
+            graphicIndex = Prefs.GetKey<int>(Prefs.KEY_TYPES.GRAPHICS);
+        }
         else
         {
             graphicIndex = defaultGraphicIndex;
-            Prefs.GraphicIndex = defaultGraphicIndex;
         }
         
         SetGraphicSettings(graphicIndex);
@@ -38,9 +42,8 @@ public class SettingsOverwriter : MonoBehaviour
 
         if (audioMixer == null) return;
         
-        float defaultDB = -6f;
-        float musicDB = PlayerPrefs.HasKey("musicVolume") ? Prefs.MusicVolume : defaultDB;
-        float soundDB = PlayerPrefs.HasKey("soundVolume") ? Prefs.SoundVolume : defaultDB;
+        float musicDB = Prefs.HasKey(Prefs.KEY_TYPES.MUSIC) ? Prefs.GetKey<float>(Prefs.KEY_TYPES.MUSIC) : defaultDB;
+        float soundDB = Prefs.HasKey(Prefs.KEY_TYPES.SOUND) ? Prefs.GetKey<float>(Prefs.KEY_TYPES.SOUND) : defaultDB;
         
         audioMixer.SetFloat("Music", musicDB);
         audioMixer.SetFloat("SFX", soundDB);
