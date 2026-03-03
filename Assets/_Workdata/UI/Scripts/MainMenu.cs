@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private ScreenTypes startingType;
 
     [Separator("Screens")]
-    [SerializeField] private List<ScreenEntry> screenEntries = new();
+    [SerializeField] private List<ScreenEntry> screenEntries = new(4);
 
     [Separator("Animations")]
     [SerializeField] private Animator highscoreMessageAnimator;
@@ -39,8 +39,8 @@ public class MainMenu : MonoBehaviour
     {
         sceneLoader = GetComponent<SceneLoader>();
         
-        if (!PlayerPrefs.HasKey("level")) Prefs.Level = 0;
-        if (!PlayerPrefs.HasKey("xp")) Prefs.Xp = 0;
+        if (!Prefs.HasKey(Prefs.KEY_TYPES.LEVEL)) Prefs.SetKey(Prefs.KEY_TYPES.LEVEL, 0);
+        if (!Prefs.HasKey(Prefs.KEY_TYPES.XP)) Prefs.SetKey(Prefs.KEY_TYPES.XP, 0);
 
         foreach (var entry in screenEntries)
         {
@@ -57,10 +57,10 @@ public class MainMenu : MonoBehaviour
         if (screens.TryGetValue(startingType, out var startScreen))
             startScreen.SetActive(true);
         
-        if (Prefs.NewScore)
+        if (Prefs.GetKey<bool>(Prefs.KEY_TYPES.NEW_SCORE))
         {
             highscoreMessageAnimator.SetTrigger("NewHighscore");
-            Prefs.NewScore = false;
+            Prefs.SetKey(Prefs.KEY_TYPES.NEW_SCORE, false);
         }
     }
 
@@ -81,13 +81,13 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"Screen type {type} not found in MainMenu.");
+            Debugger.LogWarning($"Screen type {type} not found in MainMenu.");
         }
     }
 
     public void StartGame()
     {
-        if (Prefs.IsFirstGame)
+        if (Prefs.GetKey<bool>(Prefs.KEY_TYPES.FIRST_GAME))
         {
             sceneLoader.SetTargetScene("TutorialScene");
             fadeAnimation.StartFade();
