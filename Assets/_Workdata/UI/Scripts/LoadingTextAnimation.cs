@@ -32,7 +32,7 @@ public class LoadingTextAnimation : TextMeshProUGUI
         text = loadingTextReferences.prefix + "..";
         yield return new WaitForSeconds(fourth);
         
-        text = loadingTextReferences.prefix + "..";
+        text = loadingTextReferences.prefix + "...";
         yield return new WaitForSeconds(fourth);
         
         StartCoroutine(TextAnimation(duration));
