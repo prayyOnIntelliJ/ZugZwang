@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using MyBox;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class BlessingOfLife : MonoBehaviour, IBlessing
     [SerializeField]
     private int maxBlessingCount = 2;
 
+    [SerializeField] private int searchRadius = 4;
+
     [Separator("Events")]
     public Action<Collider> OnCollected;
     public static event Action<Vector3> OnFigureSpawnPositionCalculated;
@@ -27,17 +30,19 @@ public class BlessingOfLife : MonoBehaviour, IBlessing
     {
         if (!other.CompareTag(tagToCheck)) return;
 
-        Invoke(nameof(Deactivate), 0.1f);
+        StartCoroutine(DeactivateDelayed());
 
         OnCollected?.Invoke(other);
 
         FigureInjector hitInjector = other.GetComponentInChildren<FigureInjector>();
         if (hitInjector == null) return;
         
-        FigureFactory factory = hitInjector.HeritageFactory;
+        var factory = hitInjector.HeritageFactory;
+        if (factory == null) return;
+        
         Vector3 spawnPos = GetRandomAdjacentPosition();
 
-        OnFigureSpawnPositionCalculated?.Invoke(spawnPos); // Yona 
+        OnFigureSpawnPositionCalculated?.Invoke(spawnPos);
         
         if (spawnSpecificFigures && figureToSpawn) 
             factory.SpawnFigure(figureToSpawn, spawnPos);
@@ -45,12 +50,18 @@ public class BlessingOfLife : MonoBehaviour, IBlessing
             factory.SpawnRandomFigure(spawnPos);
     }
 
+    private IEnumerator DeactivateDelayed()
+    {
+        yield return new WaitForSeconds(0.1f);
+        gameObject.SetActive(false);
+    }
+
     private Vector3 GetRandomAdjacentPosition()
     {
-        List<Vector3> possiblePositions = new();
+        List<Vector3> possiblePositions = new(8);
         Vector3 blessingPos = transform.position;
 
-        for (int i = -4; i < 5; i++)
+        for (int i = -searchRadius; i <= searchRadius; i++)
         {
             if (i == 0) continue;
 
@@ -65,11 +76,6 @@ public class BlessingOfLife : MonoBehaviour, IBlessing
             return blessingPos;
         
         return possiblePositions[UnityEngine.Random.Range(0, possiblePositions.Count)];
-    }
-
-    private void Deactivate()
-    {
-        gameObject.SetActive(false);
     }
 
     public void OnFigureCountChanged(List<GameObject> obj)
